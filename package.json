@@ -1,0 +1,26 @@
+{
+  "name": "ctp-algorithm-project",
+  "version": "1.0.0",
+  "description": "Members: - Alan Chen - Allen Kim - Khadeeja Din",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allenkim/ctp-algorithm-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allenkim/ctp-algorithm-project/issues"
+  },
+  "homepage": "https://github.com/allenkim/ctp-algorithm-project#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "express": "^4.14.0",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2"
+  }
+}
