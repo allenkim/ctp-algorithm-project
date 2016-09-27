@@ -1,0 +1,24 @@
+User
+- userID
+- email
+- username
+- password
+
+Questions
+- questionID
+- questionTitle
+- timeLimit
+- input
+- output
+- date
+- statistics
+
+UserQuestionHistory
+- solutionID
+- questionID
+- userID
+- uploadedCode
+- timeCompleted
+- date
+
+
