@@ -10,22 +10,22 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-//Respond to GET request on the root route (/) ----- (/register)
+//Respond to GET request on the register route (/register)
 router.get('/', function(req, res) {
   res.send('Got a GET request for register page');
 });
 
-//Respond to POST request on the root route (/)
+//Respond to POST request on the register route (/register)
 router.post('/', function (req, res) {
   res.send('Got a POST request to register page');
 });
 
-//Respond to a PUT request to the root route (/)
+//Respond to a PUT request to the register route (/register)
 router.put('/', function (req, res) {
   res.send('Got a PUT request at /register');
 });
 
-//Respond to a DELETE request to the root route (/)
+//Respond to a DELETE request to the register route (/register)
 router.delete('/', function (req, res) {
   res.send('Got a DELETE request at /register');
 });

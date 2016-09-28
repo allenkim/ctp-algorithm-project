@@ -10,22 +10,22 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-//Respond to GET request on the root route (/) ----- (/results)
+//Respond to GET request on the results route (/results)
 router.get('/', function(req, res) {
   res.send('Got a GET request for results page');
 });
 
-//Respond to POST request on the root route (/)
+//Respond to POST request on the results route (/results)
 router.post('/', function (req, res) {
   res.send('Got a POST request to results page');
 });
 
-//Respond to a PUT request to the root route (/)
+//Respond to a PUT request to the results route (/results)
 router.put('/', function (req, res) {
   res.send('Got a PUT request at /results');
 });
 
-//Respond to a DELETE request to the root route (/)
+//Respond to a DELETE request to the results route (/results)
 router.delete('/', function (req, res) {
   res.send('Got a DELETE request at /results');
 });
