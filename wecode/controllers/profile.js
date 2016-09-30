@@ -1,4 +1,4 @@
-//router object that defines the root route (/), the profile page is the application's homepage
+//router object that defines the /{name} route
 
 var express = require('express');
 var router = express.Router();
@@ -10,24 +10,29 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-//Respond to GET request on the root route (/)
+//Respond to GET request on the profile route (/user/:username)
 router.get('/', function(req, res) {
-  res.send('Got a GET request for profile home page');
+  res.send('Profile homepage');
 });
 
-//Respond to POST request on the root route (/)
-router.post('/', function (req, res) {
+//Respond to GET request to a specific user route (/user/:username)
+router.get('/:username', function (req, res) {
+  res.send('The is the profile page of: ' + req.params.username);
+});
+
+//Respond to POST request on the profile route (/user/:username)
+router.post('/:username', function (req, res) {
   res.send('Got a POST request to profile page');
 });
 
-//Respond to a PUT request to the root route (/)
-router.put('/', function (req, res) {
-  res.send('Got a PUT request at /');
+//Respond to a PUT request to the profile route (/user/:username)
+router.put('/:username', function (req, res) {
+  res.send('Got a PUT request at /profile');
 });
 
-//Respond to a DELETE request to the root route (/)
-router.delete('/', function (req, res) {
-  res.send('Got a DELETE request at /');
+//Respond to a DELETE request to the profile route (/user/:username)
+router.delete('/:username', function (req, res) {
+  res.send('Got a DELETE request at /profile');
 });
 
 module.exports = router;
