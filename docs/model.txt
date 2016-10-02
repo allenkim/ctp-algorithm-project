@@ -1,0 +1,27 @@
+user
+- user_id - integer PK
+- email - string PK
+- username - string PK
+- password - string 
+
+questions
+- question_id PK - int
+- question_title - string
+- input - text
+- output - text
+- number_attempts - int
+- number_success - int
+- date - date_time
+
+question_attempts
+- attempt_id PK
+- question_id FK
+- user_id - int FK
+- code_id - int FK
+- success - boolean
+- upload_time - date_time
+
+uploaded_code
+- code_id - int PK
+- uploaded_text - text
+
