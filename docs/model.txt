@@ -1,21 +1,21 @@
 user
 - user_id - integer PK
-- email - string PK
-- username - string PK
+- email - string UK
+- username - string UK
 - password - string 
 
 questions
-- question_id PK - int
+- question_id - integer PK
 - question_title - string
 - input - text
 - output - text
-- number_attempts - int
-- number_success - int
+- number_attempts - integer
+- number_success - integer
 - date - date_time
 
 question_attempts
-- attempt_id PK
-- question_id FK
+- attempt_id - int PK
+- question_id - int FK
 - user_id - int FK
 - code_id - int FK
 - success - boolean
