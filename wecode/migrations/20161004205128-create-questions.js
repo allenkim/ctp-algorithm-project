@@ -9,21 +9,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       question_title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       input: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       output: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       number_attempts: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       number_success: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       date: {
+        allowNull: false,
         type: Sequelize.DATE_TIME
       },
       createdAt: {

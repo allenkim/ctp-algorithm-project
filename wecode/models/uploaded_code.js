@@ -1,8 +1,12 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var uploaded_code = sequelize.define('uploaded_code', {
-    code_id: DataTypes.INTEGER,
-    uploaded_text: DataTypes.TEXT
+    uploaded_text: {
+      validate: {
+        notEmpty: true,
+      },
+      type: Sequelize.TEXT
+    }
   }, {
     classMethods: {
       associate: function(models) {

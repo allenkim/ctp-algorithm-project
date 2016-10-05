@@ -1,13 +1,40 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var questions = sequelize.define('questions', {
-    question_id: DataTypes.INTEGER,
-    question_title: DataTypes.STRING,
-    input: DataTypes.TEXT,
-    output: DataTypes.TEXT,
-    number_attempts: DataTypes.INTEGER,
-    number_success: DataTypes.INTEGER,
-    date: DataTypes.DATE_TIME
+    question_title: {
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+      type: Sequelize.STRING
+    },
+    input: {
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+      type: Sequelize.TEXT
+    },
+    output: {
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+      type: Sequelize.TEXT
+    },
+    number_attempts: {
+      type: Sequelize.INTEGER
+    },
+    number_success: {
+      type: Sequelize.INTEGER
+    },
+    date: {
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+      type: Sequelize.DATE_TIME
+    }
   }, {
     classMethods: {
       associate: function(models) {
