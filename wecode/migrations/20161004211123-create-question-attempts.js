@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       upload_time: {
-        type: Sequelize.DATE_TIME
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
