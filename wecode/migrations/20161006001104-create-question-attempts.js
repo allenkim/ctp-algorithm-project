@@ -10,14 +10,17 @@ module.exports = {
       },
       question_id: {
         allowNull: false,
+        references: { model: 'questions', key: 'question_id' },
         type: Sequelize.INTEGER
       },
       user_id: {
         allowNull: false,
+        references: { model: 'users', key: 'user_id' },
         type: Sequelize.INTEGER
       },
       code_id: {
         allowNull: false,
+        references: { model: 'uploaded_codes', key: 'code_id' },
         type: Sequelize.INTEGER
       },
       success: {
