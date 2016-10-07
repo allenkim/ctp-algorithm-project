@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "aka",
+    "password": "password",
+    "database": "wecode_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "aka",
+    "password": "password",
+    "database": "wecode_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "aka",
+    "password": "password",
+    "database": "wecode_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
