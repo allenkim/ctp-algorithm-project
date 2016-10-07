@@ -12,7 +12,7 @@ router.use(function timeLog(req, res, next) {
 
 //Respond to GET request on the problem route (/)
 router.get('/', function(req, res) {
-  res.send('Got a GET request for problem home page');
+  res.render('problem');
 });
 
 //Respond to POST request on the problem route (/)

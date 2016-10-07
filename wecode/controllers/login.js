@@ -12,7 +12,7 @@ router.use(function timeLog(req, res, next) {
 
 //Respond to GET request on the login route (/login)
 router.get('/', function(req, res) {
-  res.send('Got a GET request for login page');
+  res.render('login');
 });
 
 //Respond to POST request on the login route (/login)

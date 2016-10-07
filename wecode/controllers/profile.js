@@ -10,14 +10,9 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-//Respond to GET request on the profile route (/user/:username)
-router.get('/', function(req, res) {
-  res.send('Profile homepage');
-});
-
 //Respond to GET request to a specific user route (/user/:username)
 router.get('/:username', function (req, res) {
-  res.send('The is the profile page of: ' + req.params.username);
+  res.render('profile',{'username': req.params.username});
 });
 
 //Respond to POST request on the profile route (/user/:username)

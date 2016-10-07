@@ -12,7 +12,7 @@ router.use(function timeLog(req, res, next) {
 
 //Respond to GET request on the register route (/register)
 router.get('/', function(req, res) {
-  res.send('Got a GET request for register page');
+  res.render('register');
 });
 
 //Respond to POST request on the register route (/register)
