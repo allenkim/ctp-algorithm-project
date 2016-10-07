@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node_modules/.bin/nodemon -L app.js",
-    "test": "node_modules/mocha/bin/mocha --recursive tests/"
+    "test": "node_modules/mocha/bin/mocha --recursive tests/",
+    "migrate": "node_modules/sequelize-cli/bin/sequelize db:migrate"
   },
   "repository": {
     "type": "git",
