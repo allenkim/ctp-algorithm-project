@@ -5,3 +5,17 @@ Members:
 - Khadeeja Din
 
 This is a project for CUNY Tech Prep 2016.
+
+## Project Details
+https://docs.google.com/document/d/1CND2T2w5NvPWJCiXsNtFGaWF8haM3cGDu2_WlSMutzE/edit?usp=sharing
+
+
+## Requirements
+- Postgres
+- NPM
+
+## Instructions to run
+- npm install
+- npm run migrate
+- npm start
+
