@@ -17,5 +17,6 @@ https://docs.google.com/document/d/1CND2T2w5NvPWJCiXsNtFGaWF8haM3cGDu2_WlSMutzE/
 ## Instructions to run
 - npm install
 - npm run migrate
+- npm run seed
 - npm start
 
