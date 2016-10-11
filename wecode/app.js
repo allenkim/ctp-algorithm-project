@@ -7,9 +7,14 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // loading and mounting controllers
-// only requests to /* will be sent to our "problem" router
+
+// only requests to /* will be sent to our "home" router
+const home = require('./controllers/home');
+app.use('/', home);
+
+// only requests to /problem/* will be sent to our "problem" router
 const problem = require('./controllers/problem');
-app.use('/', problem);
+app.use('/problem', problem);
 
 // only requests to /user/* will be sent to our "profile" router
 const profile = require('./controllers/profile');
