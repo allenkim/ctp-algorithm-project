@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node_modules/.bin/nodemon -L app.js",
     "test": "node_modules/mocha/bin/mocha --recursive tests/",
-    "migrate": "node_modules/sequelize-cli/bin/sequelize db:migrate"
+    "migrate": "node_modules/sequelize-cli/bin/sequelize db:migrate",
+    "seed": "node_modules/sequelize-cli/bin/sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
