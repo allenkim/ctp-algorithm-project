@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true,
         isNumeric: true,
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     user_id: {
       allowNull: false,
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true,
         isNumeric: true,
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     code_id: {
       allowNull: false,
@@ -23,18 +23,18 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true,
         isNumeric: true,
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     success: {
       allowNull: false,
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.BOOLEAN
+      type: DataTypes.BOOLEAN
     },
     upload_time: {
       allowNull: false,
-      type: Sequelize.DATE_TIME
+      type: DataTypes.DATE
     }
   }, {
     classMethods: {

@@ -1,4 +1,4 @@
-//router object that defines the problem route (/problem), the problem page is the application's root route
+//router object that defines the home route (/), the problem page is the application's root route
 
 var express = require('express');
 var router = express.Router();
@@ -12,7 +12,7 @@ router.use(function timeLog(req, res, next) {
 
 //Respond to GET request on the problem route (/)
 router.get('/', function(req, res) {
-  res.render('problem');
+  res.render('home');
 });
 
 //Respond to POST request on the problem route (/)
