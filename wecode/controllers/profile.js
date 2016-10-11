@@ -3,11 +3,26 @@
 var express = require('express');
 var router = express.Router();
 
+var models = require('../models');
+
 // middleware that is specific to profile router
 // It is invoked for any requests passed to this router
 router.use(function timeLog(req, res, next) {
   console.log('Profile Controller :: Time: ', Date.now());
   next();
+});
+
+//Respond to GET request to generic user route (/user)
+router.get('/', function (req, res) {
+  var list_of_users = [];
+  models.user.findAll({
+    attributes: ['username']
+  }).then(function(users) {
+    for (var i = 0, len = users.length; i < len; i++){
+      list_of_users.push(users[i].username);
+    }
+    res.render('user',{'usernames': list_of_users});
+  });
 });
 
 //Respond to GET request to a specific user route (/user/:username)
