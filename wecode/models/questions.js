@@ -6,34 +6,34 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     input: {
       allowNull: false,
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.TEXT
+      type: DataTypes.TEXT
     },
     output: {
       allowNull: false,
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.TEXT
+      type: DataTypes.TEXT
     },
     number_attempts: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     number_success: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     date: {
       allowNull: false,
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.DATE_TIME
+      type: DataTypes.DATE
     }
   }, {
     classMethods: {
