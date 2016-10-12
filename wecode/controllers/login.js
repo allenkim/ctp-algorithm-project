@@ -11,7 +11,7 @@ module.exports = {
 
     //Respond to GET request on the login route (/login)
     router.get('/', function(req, res) {
-      redirect.ifLoggedIn('/profile');
+      redirect.ifLoggedIn('/user');
       this.index;
     });
 
