@@ -25,7 +25,7 @@ module.exports = {
     router.get('/:username', function (req, res) {
       redirect.ifNotLoggedIn();
       this.index;
-      res.render('profile',{'username': req.params.username});
+      res.render('user_profile',{'username': req.params.username});
     });
 
     //Respond to POST request on the profile route (/user/:username)
@@ -46,6 +46,6 @@ module.exports = {
     return router;
   },
   index(req, res) {
-    res.render('profile', {user: req.user, success: req.flash('success')});
+    res.render('user_profile', {user: req.user, success: req.flash('success')});
   },
 };
