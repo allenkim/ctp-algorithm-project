@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.TEXT
+      type: DataTypes.TEXT
     }
   }, {
     classMethods: {

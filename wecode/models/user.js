@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true,
         isEmail: true,
       },
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     username: {
       allowNull: false,
@@ -16,15 +16,15 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true,
         isAlphanumeric: true,
-      }
-      type: Sequelize.STRING
+      },
+      type: DataTypes.STRING
     },
     password: {
       allowNull: false,
       validate: {
         notEmpty: true,
       },
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {
