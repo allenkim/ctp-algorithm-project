@@ -1,13 +1,11 @@
-
 // Load the bcrypt module to hash passwords
-const bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt-nodejs');
 // Load passport module, an authentication middleware for Node.js
 // Strategy to authenticate user: LocalStrategy
-const passport = require('passport')
+var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
-
-const User = require('../models').user;
+var User = require('../models').user;
 
 // verifying incoming password against the hashed password
 function passwordsMatch(passwordSubmitted, passwordStored) {

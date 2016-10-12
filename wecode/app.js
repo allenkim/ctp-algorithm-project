@@ -1,6 +1,6 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
-const models = require('./models/');
+var models = require('./models/');
 var passport = require('./middlewares/authentication');
 var app = express();
 
@@ -13,7 +13,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // loading and mounting controllers
+app.use(require('./controllers/'));
 
+/*
 // only requests to /* will be sent to our "home" router
 const home = require('./controllers/home');
 app.use('/', home);
@@ -37,5 +39,6 @@ app.use('/register', register);
 // only requests to /results/* will be sent to our "results" router
 const results = require('./controllers/results');
 app.use('/results', results);
+*/
 
 app.listen(8000);
