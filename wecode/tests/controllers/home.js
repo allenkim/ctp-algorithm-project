@@ -5,10 +5,10 @@ var expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe('Register Controller', () => {
+describe('Home Controller', () => {
   it('should GET 200', (done) =>{
     chai.request(server)
-      .get('/register')
+      .get('/')
       .end((err,res) => {
         expect(res.status).to.equal(200);
         done();

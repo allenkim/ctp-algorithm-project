@@ -16,3 +16,5 @@ app.use(passport.session());
 app.use(require('./controllers/'));
 
 app.listen(8000);
+
+module.exports = app;
