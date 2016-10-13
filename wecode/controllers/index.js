@@ -8,10 +8,11 @@ var router = express.Router();
 var basename = path.basename(module.filename);
 
 //redirect jquery
-router.use('/js', express.static('node_modules/jquery/dist'));
+router.use('/js/jquery', express.static('node_modules/jquery/dist'));
 //redirects materialize
-router.use('/js', express.static('node_modules/materialize-css/dist/js'))
-router.use('/css', express.static('node_modules/materialize-css/dist/css'))
+router.use('/js/materialize', express.static('node_modules/materialize-css/dist/js'));
+router.use('/css/materialize', express.static('node_modules/materialize-css/dist/css'));
+router.use('/css/fonts', express.static('node_modules/materialize-css/dist/fonts'));
 
 fs
   .readdirSync(__dirname)
