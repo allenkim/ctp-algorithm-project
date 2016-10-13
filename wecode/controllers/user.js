@@ -28,17 +28,17 @@ module.exports = {
       res.render('user_profile',{'username': req.params.username});
     });
 
-    //Respond to POST request on the profile route (/user/:username)
+    //Respond to POST request on the user route (/user/:username)
     router.post('/:username', function (req, res) {
       res.send('Got a POST request to profile page');
     });
 
-    //Respond to a PUT request to the profile route (/user/:username)
+    //Respond to a PUT request to the user route (/user/:username)
     router.put('/:username', function (req, res) {
       res.send('Got a PUT request at /profile');
     });
 
-    //Respond to a DELETE request to the profile route (/user/:username)
+    //Respond to a DELETE request to the user route (/user/:username)
     router.delete('/:username', function (req, res) {
       res.send('Got a DELETE request at /profile');
     });

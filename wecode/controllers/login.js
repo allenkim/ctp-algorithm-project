@@ -10,16 +10,10 @@ module.exports = {
     var router = express.Router();
 
     //Respond to GET request on the login route (/login)
-    router.get('/', function(req, res) {
-      redirect.ifLoggedIn('/user');
-      this.index;
-    });
+    router.get('/', redirect.ifLoggedIn('/user'), this.index);
 
     //Respond to POST request on the login route (/login)
-    router.post('/', function (req, res) {
-      this.login;
-      res.send('Got a POST request to login page');
-    });
+    router.post('/', this.login);
 
     return router;
   },
@@ -28,7 +22,7 @@ module.exports = {
   },
   login(req, res) {
     passport.authenticate('local', {
-      successRedirect: '/profile',
+      successRedirect: '/user',
       failureRedirect: '/login',
       failureFlash: true,
       successFlash: true,

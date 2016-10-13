@@ -43,7 +43,7 @@ submit(req, res) {
     password: req.body.password,
   }).then((user) => {
     req.login(user, () =>
-      res.redirect('/profile')
+      res.redirect('/user')
     );
   }).catch(() => {
     res.render('register');
