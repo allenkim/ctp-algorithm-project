@@ -7,6 +7,13 @@ var path = require('path');
 var router = express.Router();
 var basename = path.basename(module.filename);
 
+//redirect jquery
+router.use('/js/jquery', express.static('node_modules/jquery/dist'));
+//redirects materialize
+router.use('/js/materialize', express.static('node_modules/materialize-css/dist/js'));
+router.use('/css/materialize', express.static('node_modules/materialize-css/dist/css'));
+router.use('/css/fonts', express.static('node_modules/materialize-css/dist/fonts'));
+
 fs
   .readdirSync(__dirname)
   .filter(file => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
