@@ -9,16 +9,10 @@ module.exports = {
     var router = express.Router();
 
     //Respond to GET request on the register route (/register)
-    router.get('/', function(req, res) {
-      this.index;
-      res.render('register');
-    });
+    router.get('/', this.index);
 
     //Respond to POST request on the register route (/register)
-    router.post('/', function (req, res) {
-      this.submit;
-      res.send('Got a POST request to register page');
-    });
+    router.post('/', this.submit);
 
     //Respond to a PUT request to the register route (/register)
     router.put('/', function (req, res) {
@@ -35,18 +29,18 @@ module.exports = {
 
   index(req, res) {
   res.render('register');
-},
-submit(req, res) {
-  models.user.create({
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password,
-  }).then((user) => {
-    req.login(user, () =>
-      res.redirect('/user')
-    );
-  }).catch(() => {
-    res.render('register');
-  });
-},
+  },
+  submit(req, res) {
+    models.user.create({
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password,
+    }).then((user) => {
+      // req.login(user, () =>
+        res.redirect('/user');
+      // );
+    }).catch(() => {
+      res.render('register');
+    });
+  },
 };
