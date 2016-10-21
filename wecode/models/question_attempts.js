@@ -1,6 +1,12 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var question_attempts = sequelize.define('question_attempts', {
+    attempt_id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
     question_id: {
       allowNull: false,
       validate: {

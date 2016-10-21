@@ -5,6 +5,12 @@ const bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define('user', {
+    user_id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
     email: {
       allowNull: false,
       unique: true,
@@ -47,6 +53,6 @@ module.exports = function(sequelize, DataTypes) {
       user.password = hashedPw;
     })
   );
-  
+
   return user;
 };
