@@ -4,18 +4,19 @@ var socket = io();
 var clearText;
 
 $('form').submit(function(){
-  var text = $('#chatbot_input').val();
+  var text = $('#chatbox_input').val();
   socket.emit('chat message', text);
   $('#messages').append('<li>' + socket.id + ": " + text + '</li>');
-  $('#chatbot_input').val('');
+  $('#chatbox_input').val('');
   return false;
 });
 
-$('#chatbot_input').keypress(function(){
+$('#chatbox_input').keypress(function(){
   socket.emit('user is typing');
 });
 
 socket.on('chat message',function(msg){
+  $('#user_typing').text("");
   $('#messages').append('<li>' + msg.id + ": " + msg.text + '</li>');
 });
 
