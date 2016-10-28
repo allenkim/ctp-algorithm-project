@@ -11,13 +11,17 @@ var io = require('socket.io')(http);
 
 // server socket connection
 io.on('connection', function(socket){
-  console.log('a user connected');
+  console.log('user ' + socket.id + ' connected');
   socket.on('disconnect', function(){
-    console.log('a user disconnected');
+    console.log('user ' + socket.id + ' disconnected');
   });
 
   socket.on('chat message', function(msg){
-    io.emit('chat message',msg);
+    socket.broadcast.emit('chat message',{id:socket.id,text:msg});
+  });
+
+  socket.on('user is typing', function(){
+    socket.broadcast.emit('user is typing',socket.id);
   });
 });
 
