@@ -6,6 +6,20 @@ var models = require('./models/');
 var flash = require('connect-flash');
 var passport = require('./middlewares/authentication');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+// server socket connection
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('a user disconnected');
+  });
+
+  socket.on('chat message', function(msg){
+    io.emit('chat message',msg);
+  });
+});
 
 // creating session middleware
 // cookie option is not set to true only for development purposes
@@ -39,6 +53,9 @@ app.set('view engine', 'handlebars');
 // loading and mounting controllers
 app.use(require('./controllers/'));
 
-app.listen(8000);
+var PORT_NUMBER = 8000;
+
+http.listen(PORT_NUMBER);
+console.log("Listening on port " + PORT_NUMBER + "!")
 
 module.exports = app;
