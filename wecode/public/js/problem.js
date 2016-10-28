@@ -4,14 +4,14 @@ var socket = io();
 var clearText;
 
 $('form').submit(function(){
-  var text = $('#m').val();
+  var text = $('#chatbot_input').val();
   socket.emit('chat message', text);
   $('#messages').append('<li>' + socket.id + ": " + text + '</li>');
-  $('#m').val('');
+  $('#chatbot_input').val('');
   return false;
 });
 
-$('#m').keypress(function(){
+$('#chatbot_input').keypress(function(){
   socket.emit('user is typing');
 });
 
