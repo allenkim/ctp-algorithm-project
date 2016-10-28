@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     },
     uploaded_text: {
+      allowNull: false,
       validate: {
         notEmpty: true,
       },
