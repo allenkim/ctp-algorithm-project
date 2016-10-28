@@ -13,6 +13,10 @@ router.use('/js/jquery', express.static('node_modules/jquery/dist'));
 router.use('/js/materialize', express.static('node_modules/materialize-css/dist/js'));
 router.use('/css/materialize', express.static('node_modules/materialize-css/dist/css'));
 router.use('/css/fonts', express.static('node_modules/materialize-css/dist/fonts'));
+//redirects socket
+router.use('/socket.io-client', express.static('node_modules/socket.io-client'));
+//redirects public
+router.use('/public', express.static('public'));
 
 fs
   .readdirSync(__dirname)
