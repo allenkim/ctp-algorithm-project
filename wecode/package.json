@@ -7,6 +7,7 @@
     "start": "node_modules/.bin/nodemon -L app.js",
     "test": "node_modules/mocha/bin/mocha --recursive tests/",
     "migrate": "node_modules/sequelize-cli/bin/sequelize db:migrate",
+    "flush": "node_modules/sequelize-cli/bin/sequelize db:seed:undo:all",
     "seed": "node_modules/sequelize-cli/bin/sequelize db:seed:all"
   },
   "repository": {
