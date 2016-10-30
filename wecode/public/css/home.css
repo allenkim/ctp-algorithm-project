@@ -1,0 +1,19 @@
+#home_body {
+  padding: 20px;
+}
+
+#project_name {
+  margin: 0;
+}
+
+.row_description {
+  margin-bottom: 50px;
+}
+
+.icon_text {
+  font-size: 20px;
+}
+
+#project_description {
+  font-size: 30px;
+}
