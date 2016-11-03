@@ -16,6 +16,13 @@ function passwordsMatch(passwordSubmitted, passwordStored) {
   });
 }
 
+/*
+function passwordsMatch(passwordSubmitted, storedPassword) {
+  return bcrypt.compareSync(passwordSubmitted, storedPassword);
+}
+*/
+
+/*
 // configuring LocalStrategy
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -32,6 +39,51 @@ passport.use(new LocalStrategy(
     });
   }
 ));
+*/
+
+passport.use(new LocalStrategy({
+  usernameField: 'username',
+},
+  (username, password, done) => {
+    User.findOne({
+      where: { username },
+    }).then((user) => {
+      if (user) {
+        if (passwordsMatch(password, user.password) === false) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+      } else if (user == null) {
+        return done(null, false, { message: 'Incorrect email.' });
+      }
+
+      return done(null, user, { message: 'Successfully Logged In!' });
+    });
+  })
+);
+
+
+passport.use('login', new LocalStrategy({
+    passReqToCallback : true
+  },  {
+  usernameField: 'username',
+},
+  (username, password, done) => {
+    User.findOne({
+      where: { username },
+    }).then((user) => {
+      if (user) {
+        if (passwordsMatch(password, user.password) === false) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+      } else if (user == null) {
+        return done(null, false, { message: 'Incorrect email.' });
+      }
+
+      return done(null, user, { message: 'Successfully Logged In!' });
+    });
+  })
+);
+
 
 // serialize user instance to session with only the username
 passport.serializeUser(function(user, done) {

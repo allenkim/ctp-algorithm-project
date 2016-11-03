@@ -15,7 +15,7 @@ module.exports = {
 
     //Respond to POST request on the problem route (/)
     router.post('/', function (req, res) {
-      this.submit;
+      //this.submit;
       res.send('Got a POST request to problem page');
     });
 

@@ -13,7 +13,13 @@ module.exports = {
     router.get('/', redirect.ifLoggedIn('/user'), this.index);
 
     //Respond to POST request on the login route (/login)
-    router.post('/', this.login);
+    //router.post('/', this.login);
+
+    router.post('/',
+    passport.authenticate('login', { failureRedirect: '/login' }),
+    function(req, res) {
+    res.redirect('/');
+  });
 
     return router;
   },
@@ -21,9 +27,9 @@ module.exports = {
     res.render('login', {error: req.flash('error')});
   },
   login(req, res) {
-    passport.authenticate('local', {
-      successRedirect: '/user',
-      failureRedirect: '/login',
+    passport.authenticate('login', {
+      successRedirect: '/',
+      failureRedirect: '/problem',
       failureFlash: true,
       successFlash: true,
     })(req, res);
