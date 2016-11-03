@@ -36,6 +36,7 @@ module.exports = {
       username: req.body.username,
       password: req.body.password,
     }).then((user) => {
+      // Login doesn't work because it attempts to find username using user_id parameter
       // req.login(user, () =>
         res.redirect('/user');
       // );
