@@ -28,6 +28,12 @@ socket.on('user is typing',function(id){
   }, 3000);
 });
 
+$("#problem_input").click(function() {
+  var input = "Hello World!";
+  var file = new File([input], "helloworld.txt", {type: "text/plain;charset=utf-8"});
+  saveAs(file);
+});
+
 $("#problem_output").change(function() {
   var file = this.files[0];
   var textType = /text.*/;
