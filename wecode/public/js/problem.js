@@ -28,7 +28,25 @@ socket.on('user is typing',function(id){
   }, 3000);
 });
 
-$("#problem_input").change(function() {
+$("#problem_output").change(function() {
+  var file = this.files[0];
+  var textType = /text.*/;
+  if (file.type.match(textType)) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      console.log(reader.result);
+      console.log(typeof reader.result);
+    }
+
+    reader.readAsText(file);
+  }
+  else {
+    console.log("File not supported!");
+  }
+});
+
+$("#source_code").change(function() {
   var file = this.files[0];
   var textType = /text.*/;
   if (file.type.match(textType)) {
