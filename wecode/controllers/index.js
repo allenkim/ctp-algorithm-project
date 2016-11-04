@@ -15,6 +15,8 @@ router.use('/css/materialize', express.static('node_modules/materialize-css/dist
 router.use('/css/fonts', express.static('node_modules/materialize-css/dist/fonts'));
 //redirects socket
 router.use('/socket.io-client', express.static('node_modules/socket.io-client'));
+//redirects FileSaver
+router.use('/file-saver', express.static('node_modules/file-saver'));
 //redirects public
 router.use('/public', express.static('public'));
 

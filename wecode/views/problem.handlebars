@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="/public/css/problem.css">
 <div id="problem_body">
 <h1>Problem</h1>
+<button id="problem_input">Download input file</button><br>
+<label for="problem_output">Upload your output file:</label><br>
+<input id="problem_output" type="file">
+<br>
+<label for="source_code">Upload your source code:</label><br>
+<input id="source_code" type="file">
 <ul id="messages"></ul>
 <span id="user_typing"> </span>
 <form action="">
@@ -8,5 +14,6 @@
   <button> Submit </button>
 </form>
 <script src="/socket.io-client/socket.io.js" defer></script>
+<script src="/file-saver/FileSaver.min.js" defer></script>
 <script src="/public/js/problem.js" defer></script>
 </div>
