@@ -1,2 +1,25 @@
 <h1>Profile</h1>
-<p> Hi {{{username}}} </p>
+{{#each success}}
+  <div class="alert alert-danger">{{this}}</div>
+{{/each}}
+
+<div class="dropdown">
+  <a data-target="#" href="/profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{user.username}}
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <li><a href="#">History</a></li>
+    <li><a href="#">Profile Settings</a></li>
+    <li><a href="#">Logout</a></li>
+  </ul>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <p>Random Profile Info..</p>
+    </div>
+  </div>
+</div>
