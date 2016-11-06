@@ -3,10 +3,10 @@ var socket = io();
 // clearText is the variable to know when to remove the "user is typing" message
 var clearText;
 
-$('form').submit(function(){
+$('#chat_form').submit(function(){
   var text = $('#chatbox_input').val();
   socket.emit('chat message', text);
-  $('#messages').append('<li>' + socket.id + ": " + text + '</li>');
+  $('#messages').append('<div class="user_messages"><span class="chat_username">' + socket.id + ': </span><p class="message_text">' + text + '</p></div>');
   $('#chatbox_input').val('');
   return false;
 });
@@ -17,14 +17,15 @@ $('#chatbox_input').keypress(function(){
 
 socket.on('chat message',function(msg){
   $('#user_typing').text("");
-  $('#messages').append('<li>' + msg.id + ": " + msg.text + '</li>');
+  $('#messages').append('<div class="other_user_messages"><span class="chat_username">' + msg.id + ':</span><p class="message_text">' + msg.text + '</p></div>');
 });
 
 socket.on('user is typing',function(id){
   clearTimeout(clearText);
   $('#user_typing').text(id + " is typing...");
+  $('#user_typing').removeClass('hidden');
   clearText = setTimeout(function(){
-    $('#user_typing').text("");
+    $('#user_typing').addClass('hidden');
   }, 3000);
 });
 
