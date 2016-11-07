@@ -1,25 +1,22 @@
-<h1>Profile</h1>
-{{#each success}}
-  <div class="alert alert-danger">{{this}}</div>
-{{/each}}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <h1>Profile</h1>
+  {{#each success}}
+    <div class="alert alert-danger">{{this}}</div>
+  {{/each}}
 
-<div class="dropdown">
-  <a data-target="#" href="/profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {{user.username}}
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="dLabel">
-    <li><a href="#">History</a></li>
-    <li><a href="#">Profile Settings</a></li>
-    <li><a href="#">Logout</a></li>
-  </ul>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <p>Random Profile Info..</p>
-    </div>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{user.username}}
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Profile Settings</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="/logout" name="action">Log Out</a></li>
+    </ul>
   </div>
-</div>
+</body>
