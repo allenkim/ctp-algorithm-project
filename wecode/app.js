@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 var exphbs = require('express-handlebars');
 var session = require('express-session');
 var models = require('./models/');
@@ -34,7 +35,8 @@ var sess = {
   cookie: {},
 };
 
-// body parser for forms
+app.use(cookieParser());
+//body parser for forms
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
