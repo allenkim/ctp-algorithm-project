@@ -7,8 +7,14 @@
   padding-right: 3%;
 }
 
+#problem_text iframe {
+  width: 100%;
+  height: calc(100% - 120px);
+  border: 5px solid #CCCCCC;
+}
+
 #chatbox_container {
-  height: 60%;
+  height: 55%;
   border: solid 1px;
 }
 

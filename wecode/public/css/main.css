@@ -1,8 +1,16 @@
 * {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
-body {
-  padding: 20px;
+.body_padding {
+    padding: 20px;
+}
+
+nav {
+    padding-left: 40px;
+}
+
+.menu_button {
+    font-size: 20px;
 }
