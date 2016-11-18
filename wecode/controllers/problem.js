@@ -31,17 +31,18 @@ module.exports = {
     res.render('problem');
   },
   submit(req, res){
-    console.log(req);
-    models.question_attempt.create({
-      question_id: req.body.question_id,
-      user_id: req.body.username,
-      code_id: req.body.password,
-      success: req.body.success,
-      upload_time: req.body.upload_time
-    }).then(() => {
-      res.redirect('/results');
-    }).catch(() => {
-      this.index;
-    });
+
+    
+    // models.question_attempt.create({
+    //   question_id: req.body.question_id,
+    //   user_id: req.body.username,
+    //   code_id: req.body.password,
+    //   success: req.body.success,
+    //   upload_time: req.body.upload_time
+    // }).then(() => {
+    //   res.redirect('/results');
+    // }).catch(() => {
+    //   this.index;
+    // });
   }
 };

@@ -88,5 +88,5 @@ $("#source_code").change(function() {
 });
 
 $('#submit_problem').click(function(){
-  $.post("/problem");
+  $.post("/problem",{source_code: source_code, user_output: user_output});
 });
