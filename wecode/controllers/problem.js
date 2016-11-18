@@ -32,17 +32,21 @@ module.exports = {
   },
   submit(req, res){
 
-    
-    // models.question_attempt.create({
-    //   question_id: req.body.question_id,
-    //   user_id: req.body.username,
-    //   code_id: req.body.password,
-    //   success: req.body.success,
-    //   upload_time: req.body.upload_time
-    // }).then(() => {
-    //   res.redirect('/results');
-    // }).catch(() => {
-    //   this.index;
-    // });
+    // there is an error here because models is not working
+    models.uploaded_code.create({
+      uploaded_text: req.body.source_code
+    });
+
+    models.question_attempt.create({
+      question_id: 1,
+      user_id: 1,
+      code_id: 1,
+      success: true,
+      upload_time: "ALAN WILL FIGURE THIS OUT"
+    }).then(() => {
+      res.redirect('/results');
+    }).catch(() => {
+      this.index;
+    });
   }
 };
