@@ -3,8 +3,8 @@ var socket = io();
 // clearText is the variable to know when to remove the "user is typing" message
 var clearText;
 
-var user_output;
-var source_code;
+var user_output = "";
+var source_code = "";
 
 $('#chat_form').submit(function(){
   var text = $('#chatbox_input').val();
@@ -88,5 +88,9 @@ $("#source_code").change(function() {
 });
 
 $('#submit_problem').click(function(){
-  $.post("/problem");
+  if (source_code != "" && user_output != "")
+    $.post("/problem",{"source_code": source_code, "user_output": user_output});
+  else {
+    alert("Upload your stuff man!")
+  }
 });
