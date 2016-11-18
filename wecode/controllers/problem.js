@@ -10,15 +10,10 @@ module.exports = {
     var router = express.Router();
 
     //Respond to GET request on the problem route (/)
-    router.get('/', function(req, res) {
-      this.index;
-      res.render('problem');
-    });
+    router.get('/', this.index);
 
     //Respond to POST request on the problem route (/)
-    router.post('/', function (req, res) {
-      res.send('Got a POST request to problem page');
-    });
+    router.post('/', this.submit);
 
     //Respond to a PUT request to the problem route (/)
     router.put('/', function (req, res) {
@@ -32,7 +27,21 @@ module.exports = {
 
     return router;
   },
-  index(re, res) {
+  index(req, res) {
     res.render('problem');
   },
+  submit(req, res){
+    console.log(req);
+    models.question_attempt.create({
+      question_id: req.body.question_id,
+      user_id: req.body.username,
+      code_id: req.body.password,
+      success: req.body.success,
+      upload_time: req.body.upload_time
+    }).then(() => {
+      res.redirect('/results');
+    }).catch(() => {
+      this.index;
+    });
+  }
 };
