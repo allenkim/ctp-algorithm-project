@@ -10,15 +10,10 @@ module.exports = {
     var router = express.Router();
 
     //Respond to GET request on the problem route (/)
-    router.get('/', function(req, res) {
-      this.index;
-      res.render('problem');
-    });
+    router.get('/', this.index);
 
     //Respond to POST request on the problem route (/)
-    router.post('/', function (req, res) {
-      res.send('Got a POST request to problem page');
-    });
+    router.post('/', this.submit);
 
     //Respond to a PUT request to the problem route (/)
     router.put('/', function (req, res) {
@@ -32,7 +27,25 @@ module.exports = {
 
     return router;
   },
-  index(re, res) {
+  index(req, res) {
     res.render('problem');
   },
+  submit(req, res){
+    // there is an error here because models is not working
+    models.uploaded_code.create({
+      uploaded_text: req.body.source_code
+    });
+
+    models.question_attempt.create({
+      question_id: 1,
+      user_id: 1,
+      code_id: 1,
+      success: true,
+      upload_time: "ALAN WILL FIGURE THIS OUT"
+    }).then(() => {
+      res.redirect('/results');
+    }).catch(() => {
+      this.index;
+    });
+  }
 };

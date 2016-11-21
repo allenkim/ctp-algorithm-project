@@ -28,6 +28,13 @@ module.exports = function(sequelize, DataTypes) {
       },
       type: DataTypes.TEXT
     },
+    question_content: {
+      allowNull: false,
+      validate: {
+          notEmpty: true,
+      },
+      type: DataTypes.TEXT
+    },
     number_attempts: {
       type: DataTypes.INTEGER
     },

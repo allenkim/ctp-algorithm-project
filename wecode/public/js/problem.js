@@ -3,7 +3,8 @@ var socket = io();
 // clearText is the variable to know when to remove the "user is typing" message
 var clearText;
 
-
+var user_output = "";
+var source_code = "";
 
 $('#chat_form').submit(function(){
   var text = $('#chatbox_input').val();
@@ -51,15 +52,14 @@ $("#problem_input").click(function() {
   saveAs(file);
 });
 
-$("#problem_output").change(function() {
+$("#user_output").change(function() {
   var file = this.files[0];
   var textType = /text.*/;
   if (file.type.match(textType)) {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-      console.log(reader.result);
-      console.log(typeof reader.result);
+      user_output = reader.result;
     }
 
     reader.readAsText(file);
@@ -76,13 +76,20 @@ $("#source_code").change(function() {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-      console.log(reader.result);
-      console.log(typeof reader.result);
+      source_code = reader.result;
     }
 
     reader.readAsText(file);
   }
   else {
     console.log("File not supported!");
+  }
+});
+
+$('#submit_problem').click(function(){
+  if (source_code != "" && user_output != "")
+    $.post("/problem",{"source_code": source_code, "user_output": user_output});
+  else {
+    alert("Upload your stuff man!")
   }
 });
