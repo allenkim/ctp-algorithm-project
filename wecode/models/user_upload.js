@@ -1,13 +1,20 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var uploaded_code = sequelize.define('uploaded_code', {
+  var user_upload = sequelize.define('user_upload', {
     code_id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    uploaded_text: {
+    upload_code: {
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+      type: DataTypes.TEXT
+    },
+    upload_output: {
       allowNull: false,
       validate: {
         notEmpty: true,
@@ -21,5 +28,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return uploaded_code;
+  return user_upload;
 };
