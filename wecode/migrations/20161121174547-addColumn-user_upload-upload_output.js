@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    queryInterface.addColumn(
+     return queryInterface.addColumn(
         'user_upload',
         'upload_output',
         {
@@ -13,6 +13,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    queryInterface.removeColumn('user_upload', 'upload_output');
+    return queryInterface.removeColumn('user_upload', 'upload_output');
   }
 };
