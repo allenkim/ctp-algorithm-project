@@ -31,18 +31,34 @@ module.exports = {
     res.render('problem');
   },
   submit(req, res){
-    //  question_id, how do we check for that?
-    //  user_id, we can use the sessions- check Khadeeja comments
-    //  sucess, use Allen's code to implement
     var success = true;
     var user_output = req.body.user_output;
-    models.questions.findById(3).then(function(question) {
+    var today_date = new Date();
+
+    models.questions.findOne({ where: {date: today_date.toJSON().slice(0,10)} }).then((question) => {
+        var question_id = question.question_id;
         var answer_output = question.output;
-        var grades = grade(user_output, answer_output, success);
-        console.log(grades);
+        var grades = grade(user_output, answer_output);
+        console.log(success);
+
+        models.question_attempts.create({
+          question_id: question_id,
+          user_id: req.session.passport.user,
+          upload_code: req.body.source_code,
+          upload_output: req.body.user_output,
+          success: success,
+          upload_time: today_date
+        }).then(() => {
+          res.redirect('/results');
+        }).catch(() => {
+          this.index;
+        });
+
+    }).catch(() => {
+      this.index;
     });
 
-    function grade(output, answer, successTracker){
+    function grade(output, answer){
       var output_lines = output.trim().split("\n");
       var answer_lines = answer.trim().split("\n");
       var check_lines = [];
@@ -51,25 +67,14 @@ module.exports = {
           check_lines[i] = "Correct!";
         }
         else {
-          successTracker = false;
+          success = false;
           check_lines[i] = "Incorrect!";
         }
       }
       return check_lines;
     }
 
-    // models.question_attempt.create({
-    //   question_id: 3,
-    //   user_id: req.session.passport.user,
-    //   upload_code: req.body.source_code,
-    //   upload_output: req.body.user_output.
-    //   success: true,
-    //   upload_time: "ALAN WILL FIGURE THIS OUT"
-    // }).then(() => {
-    //   res.redirect('/results');
-    // }).catch(() => {
-    //   this.index;
-    // });
+
 
   }
 };
