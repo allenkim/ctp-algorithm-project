@@ -31,20 +31,38 @@ module.exports = {
     res.render('problem');
   },
   submit(req, res){
-
-    models.user_upload.create({
-      upload_code: req.body.source_code,
-      upload_output: req.body.user_output
-    }).then(() => {
-      models.question_attempts.create({
-          
-      });
+    //  question_id, how do we check for that?
+    //  user_id, we can use the sessions- check Khadeeja comments
+    //  sucess, use Allen's code to implement
+    var success = true;
+    var user_output = req.body.user_output;
+    models.questions.findById(3).then(function(question) {
+        var answer_output = question.output;
+        var grades = grade(user_output, answer_output, success);
+        console.log(grades);
     });
 
+    function grade(output, answer, successTracker){
+      var output_lines = output.trim().split("\n");
+      var answer_lines = answer.trim().split("\n");
+      var check_lines = [];
+      for (var i = 0; i < output_lines.length; i++){
+        if (output_lines[i] == answer_lines[i]) {
+          check_lines[i] = "Correct!";
+        }
+        else {
+          successTracker = false;
+          check_lines[i] = "Incorrect!";
+        }
+      }
+      return check_lines;
+    }
+
     // models.question_attempt.create({
-    //   question_id: 1,
-    //   user_id: 1,
-    //   code_id: 1,
+    //   question_id: 3,
+    //   user_id: req.session.passport.user,
+    //   upload_code: req.body.source_code,
+    //   upload_output: req.body.user_output.
     //   success: true,
     //   upload_time: "ALAN WILL FIGURE THIS OUT"
     // }).then(() => {
