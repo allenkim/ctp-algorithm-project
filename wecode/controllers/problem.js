@@ -34,28 +34,27 @@ module.exports = {
     var success = true;
     var user_output = req.body.user_output;
     var today_date = new Date();
-
-    // models.questions.findOne({ where: {date: today_date.toJSON().slice(0,10)} }).then((question) => {
-    models.questions.findOne({ where: {question_title: "Relational Operators"}
-    }).then((question) => {
+    res.redirect('/results');
+    models.questions.findOne({ where: {question_title: "Relational Operators"}}).then((question) => {
         var question_id = question.question_id;
         var answer_output = question.output;
         var grades = grade(user_output, answer_output);
         console.log(success);
-
+        console.log(grades);
         models.question_attempts.create({
           question_id: question_id,
           user_id: req.session.passport.user,
           upload_code: req.body.source_code,
           upload_output: req.body.user_output,
           success: success,
-          upload_time: today_date
+          upload_time: today_date,
+          grading_output: grades.join("\n")
         }).then(() => {
-          console.log("then");
-          $.post( "/results", { name: "John", time: "2pm" } );
+
         }).catch(() => {
           this.index;
         });
+
 
     }).catch(() => {
       this.index;
@@ -67,11 +66,11 @@ module.exports = {
       var check_lines = [];
       for (var i = 0; i < output_lines.length; i++){
         if (output_lines[i] == answer_lines[i]) {
-          check_lines[i] = "Correct!";
+          check_lines[i] = "Test Case #" + (i+1) + ": Correct!";
         }
         else {
           success = false;
-          check_lines[i] = "Incorrect!";
+          check_lines[i] = "Test Case #" + (i+1) + ": Got <strong>" + output_lines[i] + "</strong>... expected <strong>" + answer_lines[i] + "</strong>";
         }
       }
       return check_lines;
