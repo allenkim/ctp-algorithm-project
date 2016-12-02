@@ -10,13 +10,12 @@ module.exports = {
     //Respond to GET request on the results route (/results)
     router.get('/', function(req, res) {
       this.index;
-      res.render('results');
     });
 
     //Respond to POST request on the results route (/results)
     router.post('/', function (req, res) {
-      this.submit;
-      res.send('Got a POST request to results page');
+      console.log(req.body);
+      this.index;
     });
 
     //Respond to a PUT request to the results route (/results)
