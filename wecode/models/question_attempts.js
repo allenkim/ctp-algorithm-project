@@ -47,6 +47,10 @@ module.exports = function(sequelize, DataTypes) {
     upload_time: {
       allowNull: false,
       type: DataTypes.DATE
+    },
+    grading_output: {
+      allowNull: false,
+      type: DataTypes.TEXT
     }
   }, {
     classMethods: {

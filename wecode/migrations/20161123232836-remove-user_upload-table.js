@@ -18,11 +18,11 @@ module.exports = {
       },
       upload_code: {
         allowNull: false,
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       upload_output: {
         allowNull: false,
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

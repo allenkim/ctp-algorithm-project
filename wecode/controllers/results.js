@@ -9,13 +9,13 @@ module.exports = {
 
     //Respond to GET request on the results route (/results)
     router.get('/', function(req, res) {
-      this.index;
+      res.render('results');
     });
 
     //Respond to POST request on the results route (/results)
     router.post('/', function (req, res) {
       console.log(req.body);
-      this.index;
+      res.render('results');
     });
 
     //Respond to a PUT request to the results route (/results)
