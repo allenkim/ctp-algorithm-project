@@ -35,7 +35,9 @@ module.exports = {
     var user_output = req.body.user_output;
     var today_date = new Date();
 
-    models.questions.findOne({ where: {date: today_date.toJSON().slice(0,10)} }).then((question) => {
+    // models.questions.findOne({ where: {date: today_date.toJSON().slice(0,10)} }).then((question) => {
+    models.questions.findOne({ where: {question_title: "Relational Operators"}
+    }).then((question) => {
         var question_id = question.question_id;
         var answer_output = question.output;
         var grades = grade(user_output, answer_output);
