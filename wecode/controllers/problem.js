@@ -51,8 +51,7 @@ module.exports = {
           success: success,
           upload_time: today_date
         }).then(() => {
-          console.log("then");
-          $.post( "/results", { name: "John", time: "2pm" } );
+          console.log("test");
         }).catch(() => {
           this.index;
         });

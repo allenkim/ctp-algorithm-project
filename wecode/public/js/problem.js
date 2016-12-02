@@ -87,8 +87,11 @@ $("#source_code").change(function() {
 });
 
 $('#submit_problem').click(function(){
-  if (source_code != "" && user_output != "")
-    $.post("/problem",{"source_code": source_code, "user_output": user_output});
+  if (source_code != "" && user_output != ""){
+    $.post("/problem",{"source_code": source_code, "user_output": user_output}).done(function(){
+      window.location = "../results";
+    })
+  }
   else {
     alert("Upload your stuff man!")
   }

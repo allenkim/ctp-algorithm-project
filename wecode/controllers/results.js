@@ -1,6 +1,8 @@
 //router object that defines the /results route
 
 var express = require('express');
+var models = require('../models');
+var passport = require('../middlewares/authentication');
 var redirect = require('../middlewares/redirect');
 
 module.exports = {
@@ -9,13 +11,22 @@ module.exports = {
 
     //Respond to GET request on the results route (/results)
     router.get('/', function(req, res) {
-      this.index;
+      res.render('results');
     });
 
     //Respond to POST request on the results route (/results)
     router.post('/', function (req, res) {
-      console.log(req.body);
-      this.index;
+      console.log("post received");
+      models.question_attempts.findAll({
+        limit: 1,
+        where: {
+          user_id: req.session.passport.user,
+        },
+        order: [ ['createdAt', 'DESC']]
+      }).then(function(entries){
+        console.log(entries[0]);
+      });
+      res.end("yes");
     });
 
     //Respond to a PUT request to the results route (/results)
@@ -29,8 +40,5 @@ module.exports = {
     });
 
     return router;
-  },
-  index(req, res) {
-    res.render('results');
-  },
+  }
 };
