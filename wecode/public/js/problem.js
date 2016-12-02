@@ -48,7 +48,7 @@ $("#problem_input").click(function() {
 -2 -2
 -879489962 -88890426
 `;
-  var file = new File([input], "input.in", {type: "text/plain;charset=utf-8"});
+  var file = new File([input], "input.in", {type: "text/plain;charset=ascii"});
   saveAs(file);
 });
 
