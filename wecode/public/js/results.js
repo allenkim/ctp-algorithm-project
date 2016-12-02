@@ -1,4 +1,3 @@
 $.post("/results").done(function(data){
-  
-  console.log(data);
+  $("#results").html(data);
 });

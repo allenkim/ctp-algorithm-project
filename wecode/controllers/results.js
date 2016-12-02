@@ -24,9 +24,8 @@ module.exports = {
         },
         order: [ ['createdAt', 'DESC']]
       }).then(function(entries){
-        console.log(entries[0]);
+        res.end(entries[0].dataValues.grading_output);
       });
-      res.end("yes");
     });
 
     //Respond to a PUT request to the results route (/results)

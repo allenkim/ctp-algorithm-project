@@ -48,7 +48,7 @@ module.exports = {
           upload_output: req.body.user_output,
           success: success,
           upload_time: today_date,
-          grading_output: grades.join("\n")
+          grading_output: grades.join("<br>")
         }).catch(() => {
           this.index;
         });
