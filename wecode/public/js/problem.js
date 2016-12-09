@@ -17,8 +17,11 @@ $('#chatbox_input').keypress(function(){
   socket.emit('user is typing');
 });
 
+
+// chatbox user_messages
 socket.on('chat message',function(msg, username){
   $('#user_typing').text("");
+
   $('#messages').append('<div class="other_user_messages"><span class="chat_username">' + username + ':</span><p class="message_text">' + msg + '</p></div>');
 });
 
@@ -71,8 +74,8 @@ $("#user_output").change(function() {
 
 $("#source_code").change(function() {
   var file = this.files[0];
-  var textType = /text.*/;
-  if (file.type.match(textType)) {
+  //var textType = /text.*/
+  //if (file.type.match(textType)) {
     var reader = new FileReader();
 
     reader.onload = function(e) {
@@ -80,10 +83,10 @@ $("#source_code").change(function() {
     }
 
     reader.readAsText(file);
-  }
-  else {
-    console.log("File not supported!");
-  }
+  //}
+  //else {
+    //console.log("File not supported!");
+  //}
 });
 
 $('#submit_problem').click(function(){
