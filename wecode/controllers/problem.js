@@ -28,6 +28,18 @@ module.exports = {
     return router;
   },
   index(req, res) {
+    //Write file to public/inputFile folder to be downloaded by user
+    var fs = require('fs');
+
+    models.questions.findOne({ where: {question_title: "Relational Operators"}}).then((question) => {
+        fs.writeFile("public/inputFile/input.txt", question.input, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+          console.log("The file was saved!");
+        });
+    });
+    
     res.render('problem');
   },
   submit(req, res){
